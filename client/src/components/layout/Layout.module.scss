@@ -6,7 +6,7 @@
 	flex-direction: column;
 
 	height: 100%;
-	max-width: 560px;
+	max-width: 540px;
 	width: 100%;
 
 	padding: 25px;
@@ -28,7 +28,10 @@
 
 .heading {
 	text-transform: uppercase;
-	color: $white;
+	color: $black;
+	margin-top: 40px;
+	color: $black;
+
 	font-size: 30px;
 	font-weight: bold;
 	@media (max-width: $mobile) {
