@@ -10,7 +10,7 @@ const Router = () => {
 	return (
 		<BrowserRouter>
 			<Routes>
-				{/* TODO: Auth routes */}
+
 				{routes.map(route => {
 					if (route.isAuth && !isAuth) {
 						return false

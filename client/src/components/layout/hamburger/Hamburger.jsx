@@ -8,14 +8,14 @@ import Menu from './Menu';
 import { useOnClickOutside } from '../../../hooks/useOnClickOutside';
 
 const Hamburger = () => {
-	const { ref, isShow, setIsShow } = useOnClickOutside(false);
+	const { isShow, ref, setIsShow } = useOnClickOutside(false);
 
 	return (
 		<div className={styles.wrapper} ref={ref}>
 			<button onClick={() => setIsShow(!isShow)}>
 				{isShow ? <IoClose /> : <CgMenuRight />}
 			</button>
-			<Menu isShow={isShow} />
+			<Menu isShow={isShow} setIsShow={setIsShow} />
 		</div>
 	);
 };

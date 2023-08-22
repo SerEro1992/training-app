@@ -1,6 +1,3 @@
-import { useForm } from 'react-hook-form'
-
-
 import Layout from "../../layout/Layout";
 
 import styles from "./Auth.module.scss"
@@ -8,28 +5,19 @@ import styles from "./Auth.module.scss"
 import Button from '../../ui/button/Button';
 import Field from '../../ui/field/Field';
 import Loader from '../../ui/Loader';
-import { useState } from 'react';
 
+import { useAuthPage } from './useAuthPage.jsx'
 
-
-const isLoading = false
-const isLoadingAuth = false
 
 const Auth = () => {
-	const [type, setType] = useState("auth")
-	const { register, handleSubmit, formState: { errors } } = useForm({
-		mode: 'onChange'
-	})
-
-	const onSubmit = (data) => {
-		console.log(data)
-	}
+	const { errors, handleSubmit, isLoading, onSubmit, register, setType } =
+		useAuthPage();
 
 	return (
 		<>
 			<Layout heading="Sign in" bgImage="/images/auth-bg.png" />
 			<div className='wrapper-inner-page'>
-				{(isLoading || isLoadingAuth) && <Loader />}
+				{isLoading && <Loader />}
 
 				<form onSubmit={handleSubmit(onSubmit)}>
 					<Field
@@ -55,7 +43,7 @@ const Auth = () => {
 					/>
 
 					<div className={styles.wrapperButtons}>
-						<Button clickHandler={() => { setType('auth') }} >Sign in</Button>
+						<Button clickHandler={() => { setType('login') }} >Log in</Button>
 						<Button clickHandler={() => { setType('register') }} >Sign up</Button>
 					</div>
 
